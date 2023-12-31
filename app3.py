@@ -4,6 +4,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 import os
 from werkzeug.utils import secure_filename
+import json
 
 app = Flask(__name__)
 
@@ -11,23 +12,27 @@ app = Flask(__name__)
 model_path = 'model/model.h5'  # Update with your model path
 model = load_model(model_path)
 
+# Load remedies from JSON file
+with open('remedies.json', 'r') as file:
+    remedies_data = json.load(file)
+
 # Define image properties
 image_height = 150
 image_width = 150
 
 @app.route('/')
 def home():
-    return render_template('upload.html', prediction=None)
+    return render_template('upload.html', prediction=None, remedy=None)
 
 @app.route('/predict', methods=['POST'])
 def predict():
     if 'file' not in request.files:
-        return render_template('upload.html', prediction="No file uploaded")
+        return render_template('upload.html', prediction="No file uploaded", remedy=None)
 
     file = request.files['file']
 
     if file.filename == '':
-        return render_template('upload.html', prediction="No file selected")
+        return render_template('upload.html', prediction="No file selected", remedy=None)
 
     if file:
         uploads_folder = 'uploads'
@@ -48,10 +53,17 @@ def predict():
         prediction = model.predict(img_array)
 
         # Mapping class indices to class labels
-        class_indices = {0: 'No DR', 1: 'Mild', 2: 'Moderate', 3: 'Severe', 4: 'Proliferative DR'}  # Update with your class indices
-        predicted_class = class_indices[np.argmax(prediction)]
+        class_indices = { 1: 'Mild', 2: 'Moderate', 3: 'Severe', 4: 'Proliferative DR'}  # Update with your class indices
+        predicted_class_index = np.argmax(prediction)
+        predicted_class = class_indices[predicted_class_index]
 
-        return jsonify({'result': predicted_class})
+
+        remedy = remedies_data.get(predicted_class, "No remedy available")
+
+        print(f"Predicted Class: {predicted_class}")
+        print(f"Remedy: {remedy}")  # Ensure remedies_data is loaded correctly
+
+        return render_template('upload.html', prediction=predicted_class, remedy=remedy)
 
 if __name__ == '__main__':
     app.run(debug=True)
