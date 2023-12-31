@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diabetic Retinopathy Detection</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Diabetic Retinopathy Detection</h1>
+    <form method="post" action="/predict" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".png, .jpg, .jpeg">
+        <input type="submit" value="Predict">
+    </form>
+    <div>
+        <div id="result" class="result-container">
+            <h2>Prediction Result</h2>
+            <p id="prediction-info">
+                {% if prediction %}
+                    Predicted Class: {{ prediction }}
+                {% else %}
+                    No prediction available
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    <!-- Include necessary JS files -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

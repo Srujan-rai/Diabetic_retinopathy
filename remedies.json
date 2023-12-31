@@ -1,0 +1,8 @@
+{
+    "No DR":"This stage indicates the absence of diabetic retinopathy. Regular eye exams are still essential for individuals with diabetes, even if they currently show no signs of DR.",
+    "Mild" :"In this stage, small areas of swelling or microaneurysms might be present in the retina's blood vessels. There might be a few small hemorrhages, but vision might not be significantly affected at this point.",
+    "Moderate" : " At this stage, more severe changes in the retina's blood vessels occur, including blocked blood vessels, leading to reduced blood supply. Vision might start to be affected, with blurry vision or vision fluctuations.",
+    "Severe" : "This stage involves more widespread retinal damage. Blood vessels can become blocked, leading to a lack of blood supply to parts of the retina. Vision is significantly affected, and this stage may progress to more severe complications if left untreated.",
+    "Proliferative DR" :"This is an advanced stage where new abnormal blood vessels start growing on the retina or into the vitreous, the gel-like substance that fills the eye. These fragile new vessels can bleed into the eye, causing severe vision problems, including blindness if not treated promptly."
+}
+    
