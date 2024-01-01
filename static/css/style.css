@@ -2,63 +2,71 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial;
-    color: #cb9797;
-    background-size: cover; /* Ensures the background image covers the entire viewport */
-    background-position: center;
+    row-gap: 100px;
 }
-
-.content{
-    display: flex;
-    align-self: center;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 25px;
-    margin-top: 10%;
-}
-
-.form-div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 30px;
-    border: solid 1px white;
-    padding: 50px;
-    border-radius: 15px;
-}
-
-.prediction-result{
-    padding-top: 80px;
-    color:#FFFFFF;
-}
-
-.heading{
-    color: #d6fffd;
-    margin-top: 80px;
-
-}
-
-.predict-button{
-    padding: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    background-color: rgb(43, 43, 255);
+header{
     color: white;
-    /* font-weight: bold;
-    letter-spacing: 0.7px; */
+    font-family: monospace;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px      ;
+    width: 500px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label{
+    color: white;
+    background-color: rgb(1, 1, 142);
+    font-family: monospace;
+    font-size: 17px;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 10px;
+    margin: 50px;
+}
+
+label:hover{
+    background-color: rgb(3, 3, 202);
+}
+
+button{
+    padding: 12px;
+    background-color: rgb(1, 1, 142);
+    font-family: monospace;
+    color: white;
+    font-size: 17px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 10px;
     border: none;
-    transition: all 0.3s ease-in-out;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.predict-button:hover{
-    background-color: #3f3fff;
-    padding: 12px 32px 12px 32px;
-
 }
 
-.result-container{
-    color: #d2e4df;
-    position: center;
+button:hover{
+    border: solid white 1px;
+}
 
+.container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+    align-items: center;
+}
+
+#result{
+    color: white;
+    font-size: 25px;
+    font-family: monospace;
 }
