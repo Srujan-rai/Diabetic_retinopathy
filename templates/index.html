@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <title>Diabetic retinopathy detection</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
+    <header
+        <h1>Diabetic retinopathy detection</h1>
+    </header>
+    <main>
+        <div class="container">
+            <form action="/predict" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".jpg, .jpeg, .png">
+                <button type="submit">Predict</button>
+            </form>
+
+            <div id="result" class="result-container">
+                <!-- Predicted Disease and Remedy will be displayed here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                var resultDiv = document.getElementById('result');
+                if (data.error) {
+                    resultDiv.innerHTML = '<p>Error: ' + data.error + '</p>';
+                } else {
+                    resultDiv.innerHTML = '<p>Predicted Disease: ' + data.result + '</p>' +
+                                          '<p>Remedy: ' + data.remedy + '</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

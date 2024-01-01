@@ -21,18 +21,19 @@ image_height = 150
 image_width = 150
 
 @app.route('/')
-def home():
-    return render_template('upload.html', prediction=None, remedy=None)
+def index():
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
     if 'file' not in request.files:
-        return render_template('upload.html', prediction="No file uploaded", remedy=None)
+        return jsonify({'error': 'No image file uploaded'})
 
     file = request.files['file']
 
     if file.filename == '':
-        return render_template('upload.html', prediction="No file selected", remedy=None)
+        return jsonify({'error': 'No image file selected'})
+
 
     if file:
         uploads_folder = 'uploads'
@@ -63,7 +64,7 @@ def predict():
         print(f"Predicted Class: {predicted_class}")
         print(f"Remedy: {remedy}")  # Ensure remedies_data is loaded correctly
 
-        return render_template('upload.html', prediction=predicted_class, remedy=remedy)
+        return jsonify({'result': predicted_class, 'remedy': remedy})
 
 if __name__ == '__main__':
     app.run(debug=True)
