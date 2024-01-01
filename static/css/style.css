@@ -2,7 +2,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 100px;
+    row-gap: 10px;
 }
 header{
     color: white;
@@ -16,7 +16,7 @@ header{
 form{
     display: flex;
     flex-direction: column;
-    row-gap: 100px      ;
+    row-gap: 80px      ;
     width: 500px;
     align-items: center;
     justify-content: space-between;
@@ -61,7 +61,7 @@ button:hover{
 .container{
     display: flex;
     flex-direction: column;
-    row-gap: 100px;
+    row-gap: 10px;
     align-items: center;
 }
 
