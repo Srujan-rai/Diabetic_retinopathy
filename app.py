@@ -9,7 +9,7 @@ import json
 app = Flask(__name__)
 
 
-model_path = 'model/model.h5'  # Update with your model path
+model_path = 'model/model.h5' 
 model = load_model(model_path)
 
 

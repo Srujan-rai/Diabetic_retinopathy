@@ -3,8 +3,7 @@ body{
     flex-direction: column;
     align-items: center;
     font-family: Arial;
-    color: #991313;
-    background-image: url('images/bc2.jpg'); /* Replace 'path/to/background.jpg' with your image path */
+    color: #cb9797;
     background-size: cover; /* Ensures the background image covers the entire viewport */
     background-position: center;
 }
@@ -59,7 +58,7 @@ body{
 }
 
 .result-container{
-    color: #d11616;
+    color: #d2e4df;
     position: center;
 
 }

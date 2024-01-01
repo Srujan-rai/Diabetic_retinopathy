@@ -4,9 +4,12 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <title>Diabetic retinopathy detection</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body>
+<body style=" 
+     background-image: url('{{ url_for('static', filename='images/bc2.jpg') }}');
+    background-size: cover;
+    background-position: 0 -120px;">
     <header
         <h1>Diabetic retinopathy detection</h1>
     </header>
@@ -18,7 +21,6 @@
             </form>
 
             <div id="result" class="result-container">
-                <!-- Predicted Disease and Remedy will be displayed here -->
             </div>
         </div>
     </main>
