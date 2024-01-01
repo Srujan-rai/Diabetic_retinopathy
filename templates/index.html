@@ -7,16 +7,20 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body style=" 
-     background-image: url('{{ url_for('static', filename='images/bc3.jpeg') }}');
+     background-image: url('{{ url_for('static', filename='images/bc2.jpg') }}');
     background-size: cover;
-    background-position: 0 -120px;">
+    background-position: 0 -120px;
+    ">
     <header
         <h1>Diabetic retinopathy detection</h1>
     </header>
     <main>
         <div class="container">
             <form action="/predict" method="POST" enctype="multipart/form-data">
-                <input type="file" name="file" accept=".jpg, .jpeg, .png">
+                <label for="file-upload">
+                <input id="file-upload" type="file" name="file" accept=".jpg, .jpeg, .png">
+                Choose File
+                </label>
                 <button type="submit">Predict</button>
             </form>
 
