@@ -38,7 +38,7 @@ Ensure the following requirements are met:
 
     ```bash
     git clone https://github.com/your-username/your-project.git
-    cd your-project
+    cd diabetic_retinopathy
     ```
 
 2. **Install Dependencies:**
@@ -60,7 +60,7 @@ Ensure the following requirements are met:
     python app.py
     ```
 
-    Replace `your_flask_code_file.py` with the name of the file containing your Flask code, such as `app.py` or any other filename you've used.
+    
 
 5. **Access the Application:**
 
