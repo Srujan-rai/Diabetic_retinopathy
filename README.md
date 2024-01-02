@@ -57,7 +57,7 @@ Ensure the following requirements are met:
 4. **Run the Flask Application:**
 
     ```bash
-    python your_flask_code_file.py
+    python app.py
     ```
 
     Replace `your_flask_code_file.py` with the name of the file containing your Flask code, such as `app.py` or any other filename you've used.
