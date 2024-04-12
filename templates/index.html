@@ -2,7 +2,6 @@
 <html>
 <head>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
     <title>Diabetic retinopathy detection</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
@@ -11,15 +10,15 @@
     background-size: cover;
     background-position: 0 -120px;
     ">
-    <header
+    <header>
         <h1>Diabetic retinopathy detection</h1>
     </header>
     <main>
         <div class="container">
             <form action="/predict" method="POST" enctype="multipart/form-data">
                 <label for="file-upload">
-                <input id="file-upload" type="file" name="file" accept=".jpg, .jpeg, .png">
-                Choose File
+                    <input id="file-upload" type="file" name="file" accept=".jpg, .jpeg, .png" onchange="validateImage(this)">
+                    Choose File 
                 </label>
                 <button type="submit">Predict</button>
             </form>
@@ -30,6 +29,23 @@
     </main>
 
     <script>
+        function validateImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var image = new Image();
+                    image.src = e.target.result;
+                    image.onload = function () {
+                        if (this.width !== 1024 || this.height > 800) {
+                            alert("Please upload an correct fundus image");
+                            input.value = ""; // Clear the file input
+                        }
+                    };
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
         document.querySelector('form').addEventListener('submit', function (e) {
             e.preventDefault();
             var formData = new FormData(this);

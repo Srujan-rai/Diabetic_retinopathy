@@ -1,0 +1,52 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyArgumentListInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="17">
+            <item index="0" class="java.lang.String" itemvalue="lap" />
+            <item index="1" class="java.lang.String" itemvalue="tensorflow" />
+            <item index="2" class="java.lang.String" itemvalue="torchivision" />
+            <item index="3" class="java.lang.String" itemvalue="docx2pdf" />
+            <item index="4" class="java.lang.String" itemvalue="Flask" />
+            <item index="5" class="java.lang.String" itemvalue="tensorflow-estimator" />
+            <item index="6" class="java.lang.String" itemvalue="tensorboard" />
+            <item index="7" class="java.lang.String" itemvalue="keras" />
+            <item index="8" class="java.lang.String" itemvalue="ml-dtypes" />
+            <item index="9" class="java.lang.String" itemvalue="tensorflow-intel" />
+            <item index="10" class="java.lang.String" itemvalue="img_to_array" />
+            <item index="11" class="java.lang.String" itemvalue="opencv-python" />
+            <item index="12" class="java.lang.String" itemvalue="cvzone" />
+            <item index="13" class="java.lang.String" itemvalue="numpy" />
+            <item index="14" class="java.lang.String" itemvalue="Keras" />
+            <item index="15" class="java.lang.String" itemvalue="Pillow" />
+            <item index="16" class="java.lang.String" itemvalue="opencv-python-headless" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+          <option value="N803" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="newcolour.RPi" />
+          <option value="cv2.imread" />
+          <option value="cv2.*" />
+          <option value="face_recognition" />
+          <option value="main.imag" />
+          <option value="main.*" />
+          <option value="api.src.main.flask_cors" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
