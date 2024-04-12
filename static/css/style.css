@@ -12,6 +12,9 @@ header{
     margin-top: 30px;
     font-weight: bold;
 }
+h1{
+    font-size: 70px;
+}
 
 form{
     display: flex;
