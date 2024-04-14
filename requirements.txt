@@ -1,2 +1,2 @@
-Flask==2.1.0
-tensorflow==2.7.0
+Flask
+tensorflow==2.14.0
