@@ -1,2 +1,2 @@
 Flask
-tensorflow==2.14.0
+tensorflow
