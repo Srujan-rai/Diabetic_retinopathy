@@ -54,8 +54,9 @@ def predict():
         prediction = model.predict(img_array)
 
 
-        class_indices = { 1: 'Mild', 2: 'Moderate', 3: 'Severe', 4: 'Proliferative DR'} 
+        class_indices = { 0:'Mild', 1: 'Mild', 2: 'Moderate', 3: 'Severe', 4: 'Proliferative DR'} 
         predicted_class_index = np.argmax(prediction)
+        print(predicted_class_index)
         predicted_class = class_indices[predicted_class_index]
 
 
@@ -67,4 +68,4 @@ def predict():
         return jsonify({'result': predicted_class, 'remedy': remedy})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=5000)

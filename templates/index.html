@@ -1,25 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href=".\static\images\bc2.jpg".ico" type="image/x-icon">
     <title>Diabetic retinopathy detection</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <style>
+        /* Style for dropdown */
+        select#disease-select {
+            padding: 10px; /* Add padding to increase the size */
+            font-size: 16px; /* Increase font size */
+            border-radius: 5px; /* Add border radius for rounded corners */
+            width: 200px; /* Set width of dropdown */
+            background-color: #f0f0f0; /* Set background color */
+            border: 1px solid #ccc; /* Add border */
+            appearance: none; /* Remove default arrow */
+            -webkit-appearance: none; /* Safari and Chrome */
+            -moz-appearance: none; /* Firefox */
+            background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Add custom arrow */
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            cursor: pointer; /* Change cursor on hover */
+        }
+
+        /* Style for dropdown options */
+        select#disease-select option {
+            font-size: 14px; /* Adjust font size of options */
+        }
+
+        /* Style for form */
+        form#prediction-form {
+            margin-bottom: 20px; /* Add margin at the bottom to create space */
+        }
+    </style>
 </head>
 <body style=" 
      background-image: url('{{ url_for('static', filename='images/background.jpg') }}');
     background-size: cover;
     background-position: 0 -120px;
+    
     ">
     <header>
-        <h1>Diabetic retinopathy detection</h1>
+        <h1 class=drop >Diabetic retinopathy  and Glaucoma detection</h1>
     </header>
     <main>
         <div class="container">
-            <form action="/predict" method="POST" enctype="multipart/form-data">
+            <form action="/predict" method="POST" enctype="multipart/form-data" id="prediction-form">
                 <label for="file-upload">
                     <input id="file-upload" type="file" name="file" accept=".jpg, .jpeg, .png" onchange="validateImage(this)">
                     Choose File 
                 </label>
+                <!-- Dropdown menu -->
+                <select name="disease" id="disease-select">
+                    <option value="Diabetic Retinopathy">Diabetic Retinopathy</option>
+                    <option value="Glaucoma">Glaucoma</option>
+                </select>
                 <button type="submit">Predict</button>
             </form>
 
@@ -37,7 +72,7 @@
                     image.src = e.target.result;
                     image.onload = function () {
                         if (this.width !== 1024 || this.height > 800) {
-                            alert("Please upload an correct fundus image");
+                            alert("Please upload a correct fundus image");
                             input.value = ""; // Clear the file input
                         }
                     };
@@ -46,9 +81,14 @@
             }
         }
 
-        document.querySelector('form').addEventListener('submit', function (e) {
+        document.getElementById('prediction-form').addEventListener('submit', function (e) {
             e.preventDefault();
             var formData = new FormData(this);
+
+            // Retrieve selected option from dropdown
+            var selectedDisease = document.getElementById('disease-select').value;
+            // Append selected option to form data
+            formData.append('selected_disease', selectedDisease);
 
             fetch('/predict', {
                 method: 'POST',
@@ -60,7 +100,9 @@
                 if (data.error) {
                     resultDiv.innerHTML = '<p>Error: ' + data.error + '</p>';
                 } else {
-                    resultDiv.innerHTML = '<p>Predicted Disease: ' + data.result + '</p>' +
+                    // Concatenate predicted disease with selected option
+                    var predictionText = data.result + ' (' + selectedDisease + ')';
+                    resultDiv.innerHTML = '<p>Predicted Disease: ' + predictionText + '</p>' +
                                           '<p>Symptoms: ' + data.remedy + '</p>';
                 }
             })

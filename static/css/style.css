@@ -73,3 +73,7 @@ button:hover{
     font-size: 25px;
     font-family: monospace;
 }
+
+drop{
+    size: 10px;
+}
