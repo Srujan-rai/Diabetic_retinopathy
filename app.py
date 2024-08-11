@@ -11,7 +11,7 @@ import os
 app = Flask(__name__)
 
 app.secret_key = os.urandom(24)
-# Firebase configuration
+#
 firebase_config = {
     "apiKey": "AIzaSyAeUlVTBZiAPXRJ2Tsg-BqkmDqbzAOBylA",
     "authDomain": "diabeticretinopathy-auth.firebaseapp.com",
