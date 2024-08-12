@@ -1,6 +1,7 @@
-Flask==2.3
+Flask==2.3.0
 tensorflow==2.15.0
 numpy==1.24.4
 werkzeug==2.3.6
 pyrebase4==5.0.0
-requests-toolbelt==1.0.0
+requests-toolbelt==0.9.1    
+pyrebase==3.0.27
