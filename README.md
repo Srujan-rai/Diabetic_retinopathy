@@ -44,7 +44,7 @@ Ensure the following requirements are met:
 2. **Install Dependencies:**
 
     ```bash
-    pip install flask tensorflow keras
+    pip install -r requirements.txt
     ```
 
 3. **Prepare Model and Files:**
