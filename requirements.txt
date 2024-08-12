@@ -1,4 +1,6 @@
-Flask
-tensorflow
-pyrebase
-protobuf==3.20.0
+Flask==2.3
+tensorflow==2.15.0
+numpy==1.24.4
+werkzeug==2.3.6
+pyrebase4==5.0.0
+requests-toolbelt==1.0.0
