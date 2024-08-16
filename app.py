@@ -7,20 +7,21 @@ from werkzeug.utils import secure_filename
 import json
 import pyrebase
 import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 
 app.secret_key = os.urandom(24)
 #
 firebase_config = {
-    "apiKey": "AIzaSyAeUlVTBZiAPXRJ2Tsg-BqkmDqbzAOBylA",
-    "authDomain": "diabeticretinopathy-auth.firebaseapp.com",
-    "projectId": "diabeticretinopathy-auth",
-    "storageBucket": "diabeticretinopathy-auth.appspot.com",
-    "messagingSenderId": "442020803694",
-    "appId": "your_app_id",
-    "measurementId": "1:442020803694:web:cdc11e82ffba7c42aea27f",
-    "databaseURL":""
+    "apiKey": os.getenv("FIREBASE_APIKEY"),
+    "authDomain": os.getenv("FIREBASE_AUTHDOMAIN"),
+    "projectId": os.getenv("FIREBASE_PROJECTID"),
+    "storageBucket": os.getenv("FIREBASE_STORAGEBUCKET"),
+    "messagingSenderId": os.getenv("FIREBASE_MESSAGINGSENDERID"),
+    "appId": os.getenv("FIREBASE_APPID"),
+    "measurementId":os.getenv("FIREBASE_MEASUREMENTID"),
+    "databaseURL":os.getenv("FIREBASE_DATABASEURL")
 }
 
 firebase = pyrebase.initialize_app(firebase_config)

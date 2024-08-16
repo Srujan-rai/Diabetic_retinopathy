@@ -87,7 +87,7 @@
             // Append selected option to form data
             formData.append('selected_disease', selectedDisease);
 
-            fetch('/predict', {
+            fetch('/predict-disease', {
                 method: 'POST',
                 body: formData
             })
