@@ -97,7 +97,6 @@
                 if (data.error) {
                     resultDiv.innerHTML = '<p>Error: ' + data.error + '</p>';
                 } else {
-                    // Concatenate predicted disease with selected option
                     var predictionText = data.result + ' (' + selectedDisease + ')';
                     resultDiv.innerHTML = '<p>Predicted Disease: ' + predictionText + '</p>' +
                                           '<p>Symptoms: ' + data.remedy + '</p>';
